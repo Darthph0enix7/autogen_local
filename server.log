@@ -375,3 +375,49 @@ INFO:     Started server process [6936]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+
+llama_print_timings:        load time =     513.22 ms
+llama_print_timings:      sample time =      95.81 ms /   344 runs   (    0.28 ms per token,  3590.40 tokens per second)
+llama_print_timings: prompt eval time =    1032.86 ms /   548 tokens (    1.88 ms per token,   530.57 tokens per second)
+llama_print_timings:        eval time =   10203.05 ms /   343 runs   (   29.75 ms per token,    33.62 tokens per second)
+llama_print_timings:       total time =   12952.34 ms
+INFO:     127.0.0.1:51568 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+Llama.generate: prefix-match hit
+
+llama_print_timings:        load time =     513.22 ms
+llama_print_timings:      sample time =      71.96 ms /   251 runs   (    0.29 ms per token,  3487.90 tokens per second)
+llama_print_timings: prompt eval time =     573.62 ms /    31 tokens (   18.50 ms per token,    54.04 tokens per second)
+llama_print_timings:        eval time =    7167.79 ms /   250 runs   (   28.67 ms per token,    34.88 tokens per second)
+llama_print_timings:       total time =    8362.50 ms
+INFO:     127.0.0.1:52700 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+Llama.generate: prefix-match hit
+
+llama_print_timings:        load time =     513.22 ms
+llama_print_timings:      sample time =       7.87 ms /    27 runs   (    0.29 ms per token,  3429.44 tokens per second)
+llama_print_timings: prompt eval time =     389.39 ms /    12 tokens (   32.45 ms per token,    30.82 tokens per second)
+llama_print_timings:        eval time =     809.37 ms /    26 runs   (   31.13 ms per token,    32.12 tokens per second)
+llama_print_timings:       total time =    1276.81 ms
+INFO:     127.0.0.1:39180 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+Llama.generate: prefix-match hit
+
+llama_print_timings:        load time =     513.22 ms
+llama_print_timings:      sample time =      28.07 ms /   100 runs   (    0.28 ms per token,  3562.65 tokens per second)
+llama_print_timings: prompt eval time =     737.00 ms /   331 tokens (    2.23 ms per token,   449.12 tokens per second)
+llama_print_timings:        eval time =    4352.13 ms /    99 runs   (   43.96 ms per token,    22.75 tokens per second)
+llama_print_timings:       total time =    5850.26 ms
+INFO:     127.0.0.1:40216 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+Llama.generate: prefix-match hit
+
+llama_print_timings:        load time =     513.22 ms
+llama_print_timings:      sample time =      86.22 ms /   278 runs   (    0.31 ms per token,  3224.50 tokens per second)
+llama_print_timings: prompt eval time =    1220.04 ms /   927 tokens (    1.32 ms per token,   759.81 tokens per second)
+llama_print_timings:        eval time =    8111.21 ms /   277 runs   (   29.28 ms per token,    34.15 tokens per second)
+llama_print_timings:       total time =   11453.53 ms
+INFO:     127.0.0.1:40216 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+Llama.generate: prefix-match hit
+
+llama_print_timings:        load time =     513.22 ms
+llama_print_timings:      sample time =     120.31 ms /   404 runs   (    0.30 ms per token,  3358.13 tokens per second)
+llama_print_timings: prompt eval time =     971.60 ms /   717 tokens (    1.36 ms per token,   737.96 tokens per second)
+llama_print_timings:        eval time =   11630.97 ms /   403 runs   (   28.86 ms per token,    34.65 tokens per second)
+llama_print_timings:       total time =   14697.06 ms
