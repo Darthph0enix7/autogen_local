@@ -44,5 +44,5 @@ student = autogen.UserProxyAgent(
 
 student.initiate_chat(
     coding_mentor,
-    message="""how are you?""",
+    message="""What are you?""",
 )

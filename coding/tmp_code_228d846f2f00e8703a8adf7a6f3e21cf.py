@@ -1,1 +1,0 @@
-plt.savefig('C:/Users/yourname/Documents/stock_price_ytd.png')
