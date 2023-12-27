@@ -3632,3 +3632,386 @@ Traceback (most recent call last):
     completion_tokens + prompt_tokens,
     ~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~
 TypeError: unsupported operand type(s) for +: 'NoneType' and 'int'
+Exception: Requested tokens (2309) exceed context window of 2048
+Traceback (most recent call last):
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/llama_cpp/server/app.py", line 304, in custom_route_handler
+    response = await original_route_handler(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/llama_cpp/server/app.py", line 845, in create_chat_completion
+    ] = await run_in_threadpool(llama.create_chat_completion, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/starlette/concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/anyio/to_thread.py", line 33, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/llama_cpp/llama.py", line 2017, in create_chat_completion
+    return handler(
+           ^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/llama_cpp/llama_chat_format.py", line 334, in basic_create_chat_completion
+    completion_or_chunks = llama.create_completion(
+                           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/llama_cpp/llama.py", line 1887, in create_completion
+    completion: Completion = next(completion_or_chunks)  # type: ignore
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/llama_cpp/llama.py", line 1387, in _create_completion
+    raise ValueError(
+ValueError: Requested tokens (2309) exceed context window of 2048
+INFO:     127.0.0.1:56138 - "POST /v1/chat/completions HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/llama_cpp/server/app.py", line 304, in custom_route_handler
+    response = await original_route_handler(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/llama_cpp/server/app.py", line 845, in create_chat_completion
+    ] = await run_in_threadpool(llama.create_chat_completion, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/starlette/concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/anyio/to_thread.py", line 33, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/llama_cpp/llama.py", line 2017, in create_chat_completion
+    return handler(
+           ^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/llama_cpp/llama_chat_format.py", line 334, in basic_create_chat_completion
+    completion_or_chunks = llama.create_completion(
+                           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/llama_cpp/llama.py", line 1887, in create_completion
+    completion: Completion = next(completion_or_chunks)  # type: ignore
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/llama_cpp/llama.py", line 1387, in _create_completion
+    raise ValueError(
+ValueError: Requested tokens (2309) exceed context window of 2048
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/uvicorn/protocols/http/httptools_impl.py", line 426, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/fastapi/applications.py", line 1106, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/starlette/applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/starlette/middleware/cors.py", line 83, in __call__
+    await self.app(scope, receive, send)
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/starlette_context/middleware/raw_middleware.py", line 92, in __call__
+    await self.app(scope, receive, send_wrapper)
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/llama_cpp/server/app.py", line 334, in custom_route_handler
+    ) = self.error_message_wrapper(error=exc, body=body)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/llama_cpp/server/app.py", line 283, in error_message_wrapper
+    return callback(body, match)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/llama_cpp/server/app.py", line 209, in context_length_exceeded
+    completion_tokens + prompt_tokens,
+    ~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'int'
+Exception: Requested tokens (2309) exceed context window of 2048
+Traceback (most recent call last):
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/llama_cpp/server/app.py", line 304, in custom_route_handler
+    response = await original_route_handler(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/llama_cpp/server/app.py", line 845, in create_chat_completion
+    ] = await run_in_threadpool(llama.create_chat_completion, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/starlette/concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/anyio/to_thread.py", line 33, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/llama_cpp/llama.py", line 2017, in create_chat_completion
+    return handler(
+           ^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/llama_cpp/llama_chat_format.py", line 334, in basic_create_chat_completion
+    completion_or_chunks = llama.create_completion(
+                           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/llama_cpp/llama.py", line 1887, in create_completion
+    completion: Completion = next(completion_or_chunks)  # type: ignore
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/llama_cpp/llama.py", line 1387, in _create_completion
+    raise ValueError(
+ValueError: Requested tokens (2309) exceed context window of 2048
+INFO:     127.0.0.1:55806 - "POST /v1/chat/completions HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/llama_cpp/server/app.py", line 304, in custom_route_handler
+    response = await original_route_handler(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/llama_cpp/server/app.py", line 845, in create_chat_completion
+    ] = await run_in_threadpool(llama.create_chat_completion, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/starlette/concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/anyio/to_thread.py", line 33, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/llama_cpp/llama.py", line 2017, in create_chat_completion
+    return handler(
+           ^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/llama_cpp/llama_chat_format.py", line 334, in basic_create_chat_completion
+    completion_or_chunks = llama.create_completion(
+                           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/llama_cpp/llama.py", line 1887, in create_completion
+    completion: Completion = next(completion_or_chunks)  # type: ignore
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/llama_cpp/llama.py", line 1387, in _create_completion
+    raise ValueError(
+ValueError: Requested tokens (2309) exceed context window of 2048
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/uvicorn/protocols/http/httptools_impl.py", line 426, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/fastapi/applications.py", line 1106, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/starlette/applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/starlette/middleware/cors.py", line 83, in __call__
+    await self.app(scope, receive, send)
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/starlette_context/middleware/raw_middleware.py", line 92, in __call__
+    await self.app(scope, receive, send_wrapper)
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/llama_cpp/server/app.py", line 334, in custom_route_handler
+    ) = self.error_message_wrapper(error=exc, body=body)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/llama_cpp/server/app.py", line 283, in error_message_wrapper
+    return callback(body, match)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/adam/anaconda3/envs/torch/lib/python3.11/site-packages/llama_cpp/server/app.py", line 209, in context_length_exceeded
+    completion_tokens + prompt_tokens,
+    ~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'int'
+Llama.generate: prefix-match hit
+
+llama_print_timings:        load time =     622.86 ms
+llama_print_timings:      sample time =     143.17 ms /   508 runs   (    0.28 ms per token,  3548.18 tokens per second)
+llama_print_timings: prompt eval time =     744.66 ms /   316 tokens (    2.36 ms per token,   424.36 tokens per second)
+llama_print_timings:        eval time =   16327.09 ms /   507 runs   (   32.20 ms per token,    31.05 tokens per second)
+llama_print_timings:       total time =   18888.95 ms
+INFO:     127.0.0.1:49414 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+Llama.generate: prefix-match hit
+
+llama_print_timings:        load time =     622.86 ms
+llama_print_timings:      sample time =     124.87 ms /   435 runs   (    0.29 ms per token,  3483.65 tokens per second)
+llama_print_timings: prompt eval time =     909.63 ms /   516 tokens (    1.76 ms per token,   567.26 tokens per second)
+llama_print_timings:        eval time =   14296.55 ms /   434 runs   (   32.94 ms per token,    30.36 tokens per second)
+llama_print_timings:       total time =   17246.11 ms
+INFO:     127.0.0.1:33072 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+Llama.generate: prefix-match hit
+
+llama_print_timings:        load time =     622.86 ms
+llama_print_timings:      sample time =      11.58 ms /    39 runs   (    0.30 ms per token,  3369.04 tokens per second)
+llama_print_timings: prompt eval time =     453.30 ms /    39 tokens (   11.62 ms per token,    86.04 tokens per second)
+llama_print_timings:        eval time =    1300.86 ms /    38 runs   (   34.23 ms per token,    29.21 tokens per second)
+llama_print_timings:       total time =    1936.37 ms
+INFO:     127.0.0.1:47258 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+Llama.generate: prefix-match hit
+
+llama_print_timings:        load time =     622.86 ms
+llama_print_timings:      sample time =      64.22 ms /   220 runs   (    0.29 ms per token,  3425.78 tokens per second)
+llama_print_timings: prompt eval time =     640.83 ms /   550 tokens (    1.17 ms per token,   858.26 tokens per second)
+llama_print_timings:        eval time =    6538.33 ms /   219 runs   (   29.86 ms per token,    33.49 tokens per second)
+llama_print_timings:       total time =    8824.14 ms
+INFO:     127.0.0.1:47258 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+Llama.generate: prefix-match hit
+
+llama_print_timings:        load time =     622.86 ms
+llama_print_timings:      sample time =      11.13 ms /    34 runs   (    0.33 ms per token,  3054.26 tokens per second)
+llama_print_timings: prompt eval time =    1478.15 ms /  1266 tokens (    1.17 ms per token,   856.48 tokens per second)
+llama_print_timings:        eval time =    1047.14 ms /    33 runs   (   31.73 ms per token,    31.51 tokens per second)
+llama_print_timings:       total time =    4743.06 ms
+INFO:     127.0.0.1:47258 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+Llama.generate: prefix-match hit
+
+llama_print_timings:        load time =     622.86 ms
+llama_print_timings:      sample time =      81.36 ms /   263 runs   (    0.31 ms per token,  3232.35 tokens per second)
+llama_print_timings: prompt eval time =     960.07 ms /   813 tokens (    1.18 ms per token,   846.81 tokens per second)
+llama_print_timings:        eval time =    8374.89 ms /   262 runs   (   31.97 ms per token,    31.28 tokens per second)
+llama_print_timings:       total time =   11329.05 ms
+INFO:     127.0.0.1:47258 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+Llama.generate: prefix-match hit
+
+llama_print_timings:        load time =     622.86 ms
+llama_print_timings:      sample time =     103.78 ms /   337 runs   (    0.31 ms per token,  3247.35 tokens per second)
+llama_print_timings: prompt eval time =    1961.94 ms /  1572 tokens (    1.25 ms per token,   801.25 tokens per second)
+llama_print_timings:        eval time =   11240.72 ms /   336 runs   (   33.45 ms per token,    29.89 tokens per second)
+llama_print_timings:       total time =   16756.15 ms
+Llama.generate: prefix-match hit
+
+llama_print_timings:        load time =     622.86 ms
+llama_print_timings:      sample time =     111.81 ms /   383 runs   (    0.29 ms per token,  3425.61 tokens per second)
+llama_print_timings: prompt eval time =     482.72 ms /    27 tokens (   17.88 ms per token,    55.93 tokens per second)
+llama_print_timings:        eval time =   11038.69 ms /   382 runs   (   28.90 ms per token,    34.61 tokens per second)
+llama_print_timings:       total time =   12519.54 ms
+INFO:     127.0.0.1:56536 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+Llama.generate: prefix-match hit
+
+llama_print_timings:        load time =     622.86 ms
+llama_print_timings:      sample time =      16.29 ms /    54 runs   (    0.30 ms per token,  3314.71 tokens per second)
+llama_print_timings: prompt eval time =     906.25 ms /   541 tokens (    1.68 ms per token,   596.96 tokens per second)
+llama_print_timings:        eval time =    1736.77 ms /    53 runs   (   32.77 ms per token,    30.52 tokens per second)
+llama_print_timings:       total time =    3724.88 ms
+INFO:     127.0.0.1:47426 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+Llama.generate: prefix-match hit
+
+llama_print_timings:        load time =     622.86 ms
+llama_print_timings:      sample time =     125.70 ms /   425 runs   (    0.30 ms per token,  3381.04 tokens per second)
+llama_print_timings: prompt eval time =    1137.83 ms /  1015 tokens (    1.12 ms per token,   892.05 tokens per second)
+llama_print_timings:        eval time =   13064.99 ms /   424 runs   (   30.81 ms per token,    32.45 tokens per second)
+llama_print_timings:       total time =   16930.31 ms
+INFO:     127.0.0.1:47426 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+Llama.generate: prefix-match hit
+
+llama_print_timings:        load time =     622.86 ms
+llama_print_timings:      sample time =      34.12 ms /   111 runs   (    0.31 ms per token,  3252.75 tokens per second)
+llama_print_timings: prompt eval time =    2518.99 ms /  1936 tokens (    1.30 ms per token,   768.56 tokens per second)
+llama_print_timings:        eval time =    3796.36 ms /   110 runs   (   34.51 ms per token,    28.98 tokens per second)
+llama_print_timings:       total time =    9780.79 ms
+INFO:     127.0.0.1:47426 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+Llama.generate: prefix-match hit
+
+llama_print_timings:        load time =     622.86 ms
+llama_print_timings:      sample time =     143.48 ms /   486 runs   (    0.30 ms per token,  3387.21 tokens per second)
+llama_print_timings: prompt eval time =    2045.76 ms /  1561 tokens (    1.31 ms per token,   763.04 tokens per second)
+llama_print_timings:        eval time =   15944.56 ms /   485 runs   (   32.88 ms per token,    30.42 tokens per second)
+llama_print_timings:       total time =   21864.47 ms
+Llama.generate: prefix-match hit
+
+llama_print_timings:        load time =     622.86 ms
+llama_print_timings:      sample time =      70.34 ms /   251 runs   (    0.28 ms per token,  3568.53 tokens per second)
+llama_print_timings: prompt eval time =     887.17 ms /   524 tokens (    1.69 ms per token,   590.64 tokens per second)
+llama_print_timings:        eval time =    7522.14 ms /   250 runs   (   30.09 ms per token,    33.24 tokens per second)
+llama_print_timings:       total time =    9890.20 ms
+INFO:     127.0.0.1:52752 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+Llama.generate: prefix-match hit
+
+llama_print_timings:        load time =     622.86 ms
+llama_print_timings:      sample time =      24.78 ms /    81 runs   (    0.31 ms per token,  3268.50 tokens per second)
+llama_print_timings: prompt eval time =     139.63 ms /    90 tokens (    1.55 ms per token,   644.58 tokens per second)
+llama_print_timings:        eval time =    2370.53 ms /    80 runs   (   29.63 ms per token,    33.75 tokens per second)
+llama_print_timings:       total time =    2890.69 ms
+INFO:     127.0.0.1:52752 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+Llama.generate: prefix-match hit
+
+llama_print_timings:        load time =     622.86 ms
+llama_print_timings:      sample time =      32.65 ms /   115 runs   (    0.28 ms per token,  3522.21 tokens per second)
+llama_print_timings: prompt eval time =     232.57 ms /    26 tokens (    8.95 ms per token,   111.79 tokens per second)
+llama_print_timings:        eval time =    3251.00 ms /   114 runs   (   28.52 ms per token,    35.07 tokens per second)
+llama_print_timings:       total time =    3812.70 ms
+INFO:     127.0.0.1:52752 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+Llama.generate: prefix-match hit
+
+llama_print_timings:        load time =     622.86 ms
+llama_print_timings:      sample time =      28.00 ms /    99 runs   (    0.28 ms per token,  3535.84 tokens per second)
+llama_print_timings: prompt eval time =     137.57 ms /    70 tokens (    1.97 ms per token,   508.84 tokens per second)
+llama_print_timings:        eval time =    2970.78 ms /    98 runs   (   30.31 ms per token,    32.99 tokens per second)
+llama_print_timings:       total time =    3459.02 ms
+INFO:     127.0.0.1:52752 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+Llama.generate: prefix-match hit
+
+llama_print_timings:        load time =     622.86 ms
+llama_print_timings:      sample time =      12.32 ms /    41 runs   (    0.30 ms per token,  3327.65 tokens per second)
+llama_print_timings: prompt eval time =     266.34 ms /    31 tokens (    8.59 ms per token,   116.39 tokens per second)
+llama_print_timings:        eval time =    1206.48 ms /    40 runs   (   30.16 ms per token,    33.15 tokens per second)
+llama_print_timings:       total time =    1640.71 ms
+INFO:     127.0.0.1:52752 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+Llama.generate: prefix-match hit
